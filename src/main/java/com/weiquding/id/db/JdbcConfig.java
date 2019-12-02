@@ -3,8 +3,6 @@ package com.weiquding.id.db;
 import org.apache.commons.dbcp2.PoolableConnection;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
-import java.util.Objects;
-
 /**
  * jdbc属性
  *

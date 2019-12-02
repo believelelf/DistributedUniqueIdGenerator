@@ -28,7 +28,7 @@ public class PoolUtilsTest {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.error("An error occurred while executing SQL", e);
         }
     }
 }
