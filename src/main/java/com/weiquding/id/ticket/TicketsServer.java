@@ -10,7 +10,7 @@ import java.sql.*;
 /**
  * ticketsServer方案
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/12/2
  */

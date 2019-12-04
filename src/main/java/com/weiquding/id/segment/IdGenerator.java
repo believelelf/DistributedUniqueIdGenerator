@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 数据库批量段方案接口
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/12/3
  */

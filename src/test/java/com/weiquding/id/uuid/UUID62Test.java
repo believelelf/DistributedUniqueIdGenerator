@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.UUID;
 
 /**
- * @author wuby
+ * @author beliveyourself
  */
 public class UUID62Test {
 

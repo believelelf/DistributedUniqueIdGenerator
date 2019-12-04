@@ -13,7 +13,7 @@ import java.util.concurrent.*;
 /**
  * TicketsServer方案测试
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/12/2
  */

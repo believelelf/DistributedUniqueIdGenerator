@@ -9,7 +9,7 @@ import java.util.function.Function;
  * 基于{@link UUID#randomUUID()} 生成一个base62编码的ID.
  * 原生成的ID的字符数为36，使用base62编码后可以缩小为最大22字符，减少38.89%空间。
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/11/26
  * @see java.util.UUID

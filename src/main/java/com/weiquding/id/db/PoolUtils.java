@@ -16,7 +16,7 @@ import java.util.Properties;
 /**
  * 数据库连接池相关操作
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/11/27
  */

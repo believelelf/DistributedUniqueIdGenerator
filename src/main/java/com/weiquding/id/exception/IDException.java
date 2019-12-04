@@ -3,7 +3,7 @@ package com.weiquding.id.exception;
 /**
  * 自定义异常
  *
- * @author wuby
+ * @author beliveyourself
  * @version V1.0
  * @date 2019/12/2
  */
