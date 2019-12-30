@@ -10,7 +10,9 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 /**
@@ -50,6 +52,7 @@ public class PoolUtils {
 
     /**
      * 获取连接
+     *
      * @return 数据库连接
      */
     public static Connection getConnection() {
@@ -57,6 +60,37 @@ public class PoolUtils {
             return createDataSource().getConnection();
         } catch (SQLException e) {
             throw new IllegalStateException("An error occurred while obtaining the connection", e);
+        }
+    }
+
+    /**
+     * 关闭资源
+     *
+     * @param connection Connection
+     * @param statement  Statement
+     * @param resultSet  ResultSet
+     */
+    public static void close(Connection connection, Statement statement, ResultSet resultSet) {
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                LOGGER.warn("An error occurred while closing ResultSet", e);
+            }
+        }
+        if (statement != null) {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                LOGGER.warn("An error occurred while closing Statement", e);
+            }
+        }
+        if (connection != null) {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                LOGGER.warn("An error occurred while closing Connection", e);
+            }
         }
     }
 

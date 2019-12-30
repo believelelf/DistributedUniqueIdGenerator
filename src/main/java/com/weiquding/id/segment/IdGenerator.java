@@ -19,11 +19,11 @@ public interface IdGenerator<T> {
     T generate();
 
     /**
-     * 生成指定size个ID
+     * 生成指定count个ID
      *
-     * @param size 数量
-     * @return size个ID
+     * @param count 数量
+     * @return count个ID
      */
-    List<T> generate(int size);
+    List<T> generate(int count);
 
 }

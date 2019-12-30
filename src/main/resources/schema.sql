@@ -18,9 +18,8 @@ CREATE TABLE `seq_no` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增主键',
   `biz_type` VARCHAR(128) NOT NULL DEFAULT '' COMMENT 'ID类型',
   `max_id` BIGINT(20) UNSIGNED NOT NULL default '1' COMMENT '当前最大ID',
-  `step`   INT(11)     NOT NULL default '1' COMMENT '步长',
   `description` VARCHAR(256) DEFAULT '' COMMENT '备注',
-  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `biz_type` (`biz_type`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='数据库批量段方案：ID生成表';

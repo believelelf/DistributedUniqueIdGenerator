@@ -1,5 +1,6 @@
 package com.weiquding.id.ticket;
 
+import com.weiquding.id.db.PoolUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.*;
 
@@ -32,12 +34,13 @@ public class TicketsServerTest {
     public void testNextId() {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().availableProcessors() + 1, 1, TimeUnit.SECONDS, new LinkedBlockingDeque<>(1000));
         List<Callable<Long>> callAbles = new ArrayList<>(100);
+        final TicketsServer ticketsServer = TicketsServer.getInstance(PoolUtils.createDataSource());
         for (int i = 0; i < 50; i++) {
             callAbles.add(new Callable<Long>() {
                 @Override
                 public Long call() throws Exception {
-                   Thread.sleep(50);
-                   return TicketsServer.nextId();
+                    Thread.sleep(new Random().nextInt(1000));
+                    return ticketsServer.nextId();
                 }
             });
         }
@@ -57,6 +60,6 @@ public class TicketsServerTest {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        LOGGER.info("\nThe size of generated ids :[{}]\nThe generated ids: {}",ids.size(), ids);
+        LOGGER.info("\nThe size of generated ids :[{}]\nThe generated ids: {}", ids.size(), ids);
     }
 }
